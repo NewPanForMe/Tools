@@ -11,9 +11,9 @@ namespace Ys.Tools.MoreTool
     public static class TokenTools
     {
         private static readonly string Key =TokenConfig.Instance.Key;
-        public static readonly SecurityKey SecurityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Key));
-        public static readonly string IsUser = TokenConfig.Instance.IsUser;
-        public static readonly string Audience = TokenConfig.Instance.Audience;
+        private static readonly SecurityKey SecurityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Key));
+        private static readonly string IsUser = TokenConfig.Instance.IsUser;
+        private static readonly string Audience = TokenConfig.Instance.Audience;
         private static readonly DateTime? NoBefore = TokenConfig.Instance.NoBefore;
         private static readonly DateTime? AccessExpires = TokenConfig.Instance.AccessExpires;
         private static readonly DateTime? RefreshToken = TokenConfig.Instance.RefreshToken;

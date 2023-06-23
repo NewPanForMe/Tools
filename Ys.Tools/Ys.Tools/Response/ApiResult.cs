@@ -36,22 +36,22 @@ namespace Ys.Tools.Response
                 Result = result
             };
         }
-        public static ApiResult True(string message)
-        {
-            return new ApiResult
-            {
-                Success = true,
-                Message = message,
-                Result = null
-            };
-        }
+        //public static ApiResult True(string message)
+        //{
+        //    return new ApiResult
+        //    {
+        //        Success = true,
+        //        Message = message,
+        //        Result = null
+        //    };
+        //}
 
         public static ApiResult True(object result)
         {
             return new ApiResult
             {
                 Success = true,
-                Message = "",
+                Message = "成功",
                 Result = result
             };
         }
@@ -60,7 +60,7 @@ namespace Ys.Tools.Response
             return new ApiResult
             {
                 Success = false,
-                Message = "",
+                Message = null,
                 Result = null
             };
         }
@@ -73,22 +73,22 @@ namespace Ys.Tools.Response
                 Result = result
             };
         }
-        public static ApiResult False(string message)
-        {
-            return new ApiResult
-            {
-                Success = false,
-                Message = message,
-                Result = null
-            };
-        }
+        //public static ApiResult False(string message)
+        //{
+        //    return new ApiResult
+        //    {
+        //        Success = false,
+        //        Message = message,
+        //        Result = null
+        //    };
+        //}
 
         public static ApiResult False(object result)
         {
             return new ApiResult
             {
                 Success = false,
-                Message = "",
+                Message = "失败",
                 Result = result
             };
         }

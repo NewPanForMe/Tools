@@ -38,23 +38,23 @@ namespace Ys.Tools.MiddleWare
             ApiResult apiResult;
             if (type == typeof(MessageException))
             {
-                apiResult = ApiResult.False(e.Message);
+                apiResult = ApiResult.False(e.Message,null);
             }
             else if (type == typeof(NoUserException))
             {
-                apiResult = ApiResult.False(e.Message);
+                apiResult = ApiResult.False(e.Message,null);
             }
             else if (type == typeof(PasswordErrorException))
             {
-                apiResult = ApiResult.False(e.Message);
+                apiResult = ApiResult.False(e.Message, null);
             }
             else if (type == typeof(NoUsernameOrPasswordException))
             {
-                apiResult = ApiResult.False(e.Message);
+                apiResult = ApiResult.False(e.Message, null);
             }
             else
             {
-                apiResult = ApiResult.False(e.Message);
+                apiResult = ApiResult.False(e.Message, null);
             }
             return apiResult;
         }
