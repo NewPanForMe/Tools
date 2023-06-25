@@ -3,15 +3,15 @@ namespace Ys.Tools.Response
 {
     public class ApiResult
     {
-        public bool? Success { get; set; }
-        public string Message { get; set; }
-        public object Result { get; set; }
+        private bool? Success { get; set; }
+        private string? Message { get; set; }
+        private object? Result { get; set; }
 
-        public ApiResult()
+        private ApiResult()
         {
         }
 
-        public ApiResult(bool success,string message, object result)
+        public ApiResult(bool success,string? message, object? result)
         {
             Success = success;
             Message = message;

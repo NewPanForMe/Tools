@@ -4,7 +4,7 @@ namespace Ys.Tools.Extra
 {
     public static class JsonElementExtra
     {
-        public static string GetJsonString(this JsonElement json, string value)
+        public static string? GetJsonString(this JsonElement json, string value)
         {
             return json.GetProperty(value).GetString();
         }

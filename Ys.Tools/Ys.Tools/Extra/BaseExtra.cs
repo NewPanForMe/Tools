@@ -4,7 +4,7 @@ namespace Ys.Tools.Extra
 {
     public static  class BaseExtra
     {
-        public static T NotNull<T>(this T value, string eMsg)
+        public static T NotNull<T>(this T? value, string eMsg)
         {
             if (value == null)
             {

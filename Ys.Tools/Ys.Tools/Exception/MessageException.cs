@@ -11,5 +11,7 @@
         public static MessageException Throw(string message) { 
             throw new MessageException(message);
         }
+
+        
     }
 }

@@ -12,12 +12,13 @@ namespace Ys.Tools.Extra
         /// <param name="eMsg"></param>
         /// <returns></returns>
         /// <exception cref="MessageException"></exception>
-        public static string HasValue(this string value, string eMsg)
+        public static string HasValue(this string? value, string eMsg)
         {
             if (string.IsNullOrEmpty(value))
             {
                 throw new MessageException(eMsg);
             }
+            if(value == null) { throw new MessageException(eMsg); }
             return value;
         }
         /// <summary>
@@ -26,12 +27,13 @@ namespace Ys.Tools.Extra
         /// <param name="value"></param>
         /// <param name="eMsg"></param>
         /// <returns></returns>
-        public static string HasValueNoNameOrPwd(this string value, string eMsg)
+        public static string HasValueNoNameOrPwd(this string? value, string eMsg)
         {
             if (string.IsNullOrEmpty(value))
             {
                 throw new NoUsernameOrPasswordException(eMsg);
             }
+            if (value == null) { throw new MessageException(eMsg); }
             return value;
         }
 
