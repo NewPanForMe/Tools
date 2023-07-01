@@ -1,26 +1,19 @@
 ﻿
 namespace Ys.Tools.Response
 {
-    public class ApiResult
+    public  class  ApiResult
     {
-        private bool? Success { get; set; }
-        private string? Message { get; set; }
-        private object? Result { get; set; }
+        public bool Success { get; set; } = false;
+        public string? Message { get; set; }
+        public object? Result { get; set; }
 
         private ApiResult()
         {
         }
 
-        public ApiResult(bool success,string? message, object? result)
-        {
-            Success = success;
-            Message = message;
-            Result = result;
-        }
-
         public static ApiResult True()
         {
-            return new ApiResult
+            return new ApiResult()
             {
                 Success= true,
                 Message="",
@@ -29,7 +22,7 @@ namespace Ys.Tools.Response
         }
         public static ApiResult True(string message,object? result)
         {
-            return new ApiResult
+            return new ApiResult()
             {
                 Success = true,
                 Message = message,
@@ -48,7 +41,7 @@ namespace Ys.Tools.Response
 
         public static ApiResult True(object? result)
         {
-            return new ApiResult
+            return new ApiResult()
             {
                 Success = true,
                 Message = "成功",
@@ -57,7 +50,7 @@ namespace Ys.Tools.Response
         }
         public static ApiResult False()
         {
-            return new ApiResult
+            return new ApiResult()
             {
                 Success = false,
                 Message = null,
@@ -66,7 +59,7 @@ namespace Ys.Tools.Response
         }
         public static ApiResult False(string message, object? result)
         {
-            return new ApiResult
+            return new ApiResult()
             {
                 Success = false,
                 Message = message,
@@ -85,7 +78,7 @@ namespace Ys.Tools.Response
 
         public static ApiResult False(object? result)
         {
-            return new ApiResult
+            return new ApiResult()
             {
                 Success = false,
                 Message = "失败",
