@@ -6,6 +6,7 @@
     <Version>1.0.11</Version>
     <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
+    <UserSecretsId>e840afef-8183-4206-bc31-1a74c8d2c606</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,13 +15,18 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.31.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
-    <PackageReference Include="System.Text.Json" Version="8.0.0-preview.5.23280.8" />
+    <PackageReference Include="System.Text.Json" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Config\" />
+    <Folder Include="Startup\" />
   </ItemGroup>
 
 </Project>

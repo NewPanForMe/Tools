@@ -27,7 +27,7 @@ namespace Ys.Tools.Response
                 Result= null
             };
         }
-        public static ApiResult True(string message,object result)
+        public static ApiResult True(string message,object? result)
         {
             return new ApiResult
             {
@@ -46,7 +46,7 @@ namespace Ys.Tools.Response
         //    };
         //}
 
-        public static ApiResult True(object result)
+        public static ApiResult True(object? result)
         {
             return new ApiResult
             {
@@ -64,7 +64,7 @@ namespace Ys.Tools.Response
                 Result = null
             };
         }
-        public static ApiResult False(string message, object result)
+        public static ApiResult False(string message, object? result)
         {
             return new ApiResult
             {
@@ -83,7 +83,7 @@ namespace Ys.Tools.Response
         //    };
         //}
 
-        public static ApiResult False(object result)
+        public static ApiResult False(object? result)
         {
             return new ApiResult
             {

@@ -2,6 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Unicode;
+using Ys.Tools.Extra;
 
 namespace Ys.Tools.MoreTool
 {
@@ -10,7 +11,7 @@ namespace Ys.Tools.MoreTool
         /// <summary>
         /// Json序列化配置
         /// </summary>
-        private  static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions()
+        private  static readonly JsonSerializerOptions JsonOptions = new()
         {
             WriteIndented = true,//整齐打印
             //包含除使用西里尔字母以外所有西方国家的文字和亚洲中日韩越的文字
@@ -40,7 +41,7 @@ namespace Ys.Tools.MoreTool
         /// <returns></returns>
         public static T Deserialize<T>(string json)
         {
-            var deserialize = JsonSerializer.Deserialize<T>(json, JsonOptions);
+            var deserialize = JsonSerializer.Deserialize<T>(json, JsonOptions).NotNull("转换失败");
             return deserialize;
         }
     }
