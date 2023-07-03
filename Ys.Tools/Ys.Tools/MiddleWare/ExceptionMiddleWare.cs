@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using Ys.Tools.Exception;
 using Ys.Tools.MoreTool;
 using Ys.Tools.Response;
@@ -9,9 +10,11 @@ namespace Ys.Tools.MiddleWare
     public class ExceptionMiddleWare
     {
         private readonly RequestDelegate _next;
-        public ExceptionMiddleWare(RequestDelegate next)
+        private readonly ILogger<ExceptionMiddleWare> _logger;
+        public ExceptionMiddleWare(RequestDelegate next, ILogger<ExceptionMiddleWare> logger)
         {
             this._next = next;
+            _logger = logger;
         }
 
 
@@ -56,6 +59,7 @@ namespace Ys.Tools.MiddleWare
             {
                 apiResult = ApiResult.False(e.Message, null);
             }
+            _logger.LogWarning(e.Message);
             return apiResult;
         }
 

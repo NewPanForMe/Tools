@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.15</Version>
+    <Version>1.0.16</Version>
     <LangVersion>9</LangVersion>
     <Nullable>enable</Nullable>
     <UserSecretsId>e840afef-8183-4206-bc31-1a74c8d2c606</UserSecretsId>
