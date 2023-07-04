@@ -14,9 +14,9 @@ namespace Ys.Tools.MoreTool
         private static readonly SecurityKey SecurityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Key));
         private static readonly string IsUser = TokenConfig.Instance.IsUser;
         private static readonly string Audience = TokenConfig.Instance.Audience;
-        private static readonly DateTime? NoBefore = TokenConfig.Instance.NoBefore;
-        private static readonly DateTime? AccessExpires = TokenConfig.Instance.AccessExpires;
-        private static readonly DateTime? RefreshToken = TokenConfig.Instance.RefreshToken;
+        private static readonly DateTime? NoBefore =DateTime.Now.AddMinutes(TokenConfig.Instance.NoBefore);
+        private static readonly DateTime? AccessExpires = DateTime.Now.AddMinutes(TokenConfig.Instance.AccessExpires);
+        private static readonly DateTime? RefreshToken = DateTime.Now.AddMinutes(TokenConfig.Instance.RefreshToken);
         /// <summary>
         ///  创建、校验token，返回ClaimsPrincipal
         ///  CanReadToken()：确定字符串是否是格式良好的Json Web令牌(JWT)

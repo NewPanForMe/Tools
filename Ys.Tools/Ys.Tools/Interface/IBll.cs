@@ -1,5 +1,5 @@
 ﻿namespace Ys.Tools.Interface;
-public class IBll
+public interface IBll
 {
 
 }
