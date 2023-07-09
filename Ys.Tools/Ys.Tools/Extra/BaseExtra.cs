@@ -8,7 +8,7 @@ namespace Ys.Tools.Extra
         {
             if (value == null)
             {
-                throw new MessageException(eMsg);
+                 throw new MessageException(eMsg);
             }
 
             return value;
