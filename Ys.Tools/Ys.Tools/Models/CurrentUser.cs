@@ -23,6 +23,9 @@ public class  CurrentUser
     /// token版本
     /// </summary>
     public string JwtVersion { get; set; } = string.Empty;
+    /// <summary>
+    /// 过期时间
+    /// </summary>
     public string ExpireTime { get; set; } = string.Empty;
 
     /// <summary>

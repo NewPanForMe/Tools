@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using Ys.Tools.Config;
@@ -14,9 +15,9 @@ namespace Ys.Tools.MoreTool
         private static readonly SecurityKey SecurityKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Key));
         private static readonly string IsUser = TokenConfig.Instance.IsUser;
         private static readonly string Audience = TokenConfig.Instance.Audience;
-        private static readonly DateTime? NoBefore =DateTime.Now.AddMinutes(TokenConfig.Instance.NoBefore);
-        private static readonly DateTime? AccessExpires = DateTime.Now.AddMinutes(TokenConfig.Instance.AccessExpires);
-        private static readonly DateTime? RefreshToken = DateTime.Now.AddMinutes(TokenConfig.Instance.RefreshToken);
+        private static  DateTime? NoBefore =DateTime.Now.AddMinutes(TokenConfig.Instance.NoBefore);
+        private static  DateTime? AccessExpires = DateTime.Now.AddMinutes(TokenConfig.Instance.AccessExpires);
+        private static  DateTime? RefreshToken = DateTime.Now.AddHours(TokenConfig.Instance.RefreshToken);
         /// <summary>
         ///  创建、校验token，返回ClaimsPrincipal
         ///  CanReadToken()：确定字符串是否是格式良好的Json Web令牌(JWT)
@@ -27,15 +28,17 @@ namespace Ys.Tools.MoreTool
         /// <returns></returns>
         public static string Create(List<Claim> listClaims)
         {
+            AccessExpires = DateTime.Now.AddMinutes(TokenConfig.Instance.AccessExpires);
+            Console.WriteLine(AccessExpires);
             JwtSecurityToken tokenConfig = new JwtSecurityToken(
                 issuer: IsUser,
                 audience: Audience,
                 claims: listClaims,
                 notBefore: NoBefore,
-                expires: RefreshToken,
+                expires: AccessExpires,
                 signingCredentials: new SigningCredentials(SecurityKey, SecurityAlgorithms.HmacSha256)
                 );
-            return new JwtSecurityTokenHandler().WriteToken(tokenConfig); ;
+            return new JwtSecurityTokenHandler().WriteToken(tokenConfig);
         }
 
         /// <summary>
@@ -75,12 +78,42 @@ namespace Ys.Tools.MoreTool
                audience: Audience,
                claims: listClaims,
                notBefore: NoBefore,
-               expires: RefreshToken,
+               expires: AccessExpires,
                signingCredentials: new SigningCredentials(SecurityKey, SecurityAlgorithms.HmacSha256)
                );
             return new JwtSecurityTokenHandler().WriteToken(tokenConfig); ;
         }
 
+        /// <summary>
+        ///  创建、校验token，返回ClaimsPrincipal
+        ///  CanReadToken()：确定字符串是否是格式良好的Json Web令牌(JWT)
+        ///  ReadJwtToken(string token)：token字符串转为JwtSecurityToken对象
+        ///  ValidateToken(string token、TokenValidationParameters parameter，out SecurityToken validatedToken)：校验token，返回ClaimsIdentity，
+        /// </summary>
+        /// <param name="listClaims"></param>
+        /// <returns></returns>
+        public static string CreateRefreshToken(List<Claim> listClaims)
+        {
+            JwtSecurityToken tokenConfig = new JwtSecurityToken(
+                issuer: IsUser,
+                audience: Audience,
+                claims: listClaims,
+                notBefore: NoBefore,
+                expires: RefreshToken,
+                signingCredentials: new SigningCredentials(SecurityKey, SecurityAlgorithms.HmacSha256)
+            );
+            return new JwtSecurityTokenHandler().WriteToken(tokenConfig); ;
+        }
 
+        /// <summary>
+        /// 解析token
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public static List<Claim> ResolveToken(string token)
+        {
+            var securityToken = new JwtSecurityTokenHandler().ReadJwtToken(token);
+            return securityToken.Claims.ToList();
+        }
     }
 }
