@@ -7,12 +7,12 @@ namespace Ys.Tools.Controllers;
 
 public class BaseController : BaseAuthController
 {
-    public override CurrentUser CurrentUser
+    public override CurrentUser? CurrentUser
     {
         get
         {
 
-            if (base.CurrentUser?.Code == null)
+            if (base.CurrentUser.Code == null)
             {
                 throw new MessageException("获取用户失败");
             }

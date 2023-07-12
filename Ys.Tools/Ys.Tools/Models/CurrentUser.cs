@@ -27,6 +27,10 @@ public class  CurrentUser
     /// 过期时间
     /// </summary>
     public string ExpireTime { get; set; } = string.Empty;
+    /// <summary>
+    /// 角色信息
+    /// </summary>
+    public string Roles { get; set; } = string.Empty;
 
     /// <summary>
     /// 用户信息
@@ -35,6 +39,7 @@ public class  CurrentUser
 
     public List<Claim> Claims { get; set; } = new List<Claim>();
 
+    public string[] ListRole { get; set; } = new string[10];
 
     public override string ToString()
     {

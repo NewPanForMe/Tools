@@ -53,7 +53,7 @@ namespace Ys.Tools.MoreTool
             if (listClaims == null) throw new ArgumentNullException(nameof(listClaims));
             listClaims.Add(new Claim("username", username));
             listClaims.Add(new Claim("password", password));
-            JwtSecurityToken tokenConfig = new JwtSecurityToken(
+            var tokenConfig = new JwtSecurityToken(
                issuer: IsUser,
                audience: Audience,
                claims: listClaims,
