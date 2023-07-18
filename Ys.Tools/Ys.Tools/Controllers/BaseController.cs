@@ -7,7 +7,7 @@ namespace Ys.Tools.Controllers;
 
 public class BaseController : BaseAuthController
 {
-    public override CurrentUser? CurrentUser
+    public override CurrentUser CurrentUser
     {
         get
         {
