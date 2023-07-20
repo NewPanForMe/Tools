@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.20</Version>
+    <Version>1.1.21</Version>
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <UserSecretsId>e840afef-8183-4206-bc31-1a74c8d2c606</UserSecretsId>
@@ -22,6 +22,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.31.0" />
+    <PackageReference Include="MiniExcel" Version="1.31.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.31.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.0" />
   </ItemGroup>
