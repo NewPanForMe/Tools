@@ -3,13 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.21</Version>
+    <Version>2.0.2</Version>
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <UserSecretsId>e840afef-8183-4206-bc31-1a74c8d2c606</UserSecretsId>
     <Authors>Ys.BMS</Authors>
     <Description>WebApi的基础操作，包括中间件、token、扩展方法等</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Startup\**" />
+    <EmbeddedResource Remove="Startup\**" />
+    <None Remove="Startup\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="nuget.exe" />
@@ -28,8 +34,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Startup\" />
     <Folder Include="Interface\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
