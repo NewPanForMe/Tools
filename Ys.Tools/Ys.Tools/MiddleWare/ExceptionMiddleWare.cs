@@ -37,28 +37,7 @@ namespace Ys.Tools.MiddleWare
         /// <returns></returns>
         private ApiResult DealException(System.Exception e)
         {
-            var type = e.GetType();
-            ApiResult apiResult;
-            if (type == typeof(MessageException))
-            {
-                apiResult = ApiResult.False(e.Message);
-            }
-            else if (type == typeof(NoUserException))
-            {
-                apiResult = ApiResult.False(e.Message);
-            }
-            else if (type == typeof(PasswordErrorException))
-            {
-                apiResult = ApiResult.False(e.Message);
-            }
-            else if (type == typeof(NoUsernameOrPasswordException))
-            {
-                apiResult = ApiResult.False(e.Message);
-            }
-            else
-            {
-                apiResult = ApiResult.False(e.Message);
-            }
+            var apiResult = ApiResult.False(e.Message);
             _logger.LogWarning(e.Message);
             return apiResult;
         }

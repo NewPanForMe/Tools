@@ -31,7 +31,7 @@ namespace Ys.Tools.Extra
         {
             if (string.IsNullOrEmpty(value))
             {
-                throw new NoUsernameOrPasswordException(eMsg);
+                throw new MessageException(eMsg);
             }
             if (value == null) { throw new MessageException(eMsg); }
             return value;
