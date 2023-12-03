@@ -23,6 +23,7 @@ public class BaseAuthController : ControllerBase
                     JwtVersion = claims.FirstOrDefault(p => p.Type == ClaimTypes.Version)?.Value ?? "",
                     ExpireTime = claims.FirstOrDefault(p => p.Type == "ExpireTime")?.Value ?? "",
                     Roles = claims.FirstOrDefault(p => p.Type == ClaimTypes.Role)?.Value ?? "",
+                    UserType = claims.FirstOrDefault(p => p.Type == "UserType")?.Value ?? "",
                     Claims = claims,
                 };
                 if (!string.IsNullOrEmpty(user.Roles) )

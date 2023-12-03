@@ -33,6 +33,11 @@ public class  CurrentUser
     public string Roles { get; set; } = string.Empty;
 
     /// <summary>
+    /// 用户类型
+    /// </summary>
+    public string UserType { get; set; } = string.Empty;
+
+    /// <summary>
     /// 用户信息
     /// </summary>
     public object Data { get; set; } = string.Empty;

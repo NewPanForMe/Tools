@@ -16,11 +16,6 @@ public class BaseController : BaseAuthController
             {
                 throw new MessageException("获取用户失败");
             }
-
-            if (DateTime.Parse(base.CurrentUser.ExpireTime) < DateTime.Now)
-            {
-                throw new MessageException("400");
-            }
             return base.CurrentUser;
         }
     }
