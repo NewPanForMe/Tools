@@ -3,12 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.21</Version>
+    <Version>1.2.1</Version>
     <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <UserSecretsId>e840afef-8183-4206-bc31-1a74c8d2c606</UserSecretsId>
-    <Authors>Ys.BMS</Authors>
+    <Authors>HonzGroup</Authors>
     <Description>WebApi的基础操作，包括中间件、token、扩展方法等</Description>
+    <Title>YsTools</Title>
+    <Company>HonzGroup</Company>
   </PropertyGroup>
 
   <ItemGroup>
